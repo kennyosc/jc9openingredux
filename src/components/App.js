@@ -7,10 +7,14 @@ import ArtistDetail from './ArtistDetail'
 class App extends React.Component{
     render(){
         return(
-            <div>
-                <SongList/>
-                <SongDetail/>
-                <ArtistDetail/>
+            <div className="container">
+                <div>
+                    <SongList/>
+                </div>
+                <div className="row d-flex justify-content-center mt-5">
+                    <SongDetail/>
+                    <ArtistDetail/>
+                </div>
             </div>
         )
     }

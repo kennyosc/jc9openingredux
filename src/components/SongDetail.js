@@ -3,8 +3,8 @@ import React from 'react'
 class SongDetail extends React.Component{
     render(){
         return(
-            <div>
-                <h1>SongDetail Component</h1>
+            <div className="col-6 col-xs-12">
+                <h1 className="display-1">Select Song</h1>
             </div>
         )
     }

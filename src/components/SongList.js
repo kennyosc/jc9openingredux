@@ -3,11 +3,32 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 class SongList extends React.Component{
+    pilihLagu = () => {
+        return 
+    }
+
+    showTitle(){
+        var judul = this.props.lagu.map((val)=>{
+            return(
+                //key itu membuat setiap data menjadi unik
+                <div key={val.title} className="p-3">
+                    <div className="d-inline pl-5">
+                        {val.title}
+                    </div>
+                    <div className="d-inline float-right pr-5">
+                        <button className="btn btn-md btn-outline-primary mr-2" onClick={this.pilihLagu}>Select Song</button>
+                        <button className="btn btn-md btn-outline-primary">Select Artist</button>
+                    </div>
+                </div>
+            )
+        })
+        return judul
+    }
+
     render(){
         return(
             <div>
-                <h1>SongList Component</h1>
-                {this.props.lagu.length}
+                {this.showTitle()}
             </div>
         )
     }
