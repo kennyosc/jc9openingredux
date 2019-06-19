@@ -7,6 +7,7 @@ import {combineReducers} from 'redux'
 
 //songsReducer adalah reducer untuk DATA
 //ingat di dalam ilustrasi bahwa nanti REDUCER akan menerima 2 hal, yaitu ACTION dan DATA LAMA
+//ini Reducer untuk generate data awal
 const songsReducer = () => {
     return [
         {
@@ -42,6 +43,16 @@ const songsReducer = () => {
     ]
 }
 
+//ini Reducer untuk handle pemilihan lagu (select song)
+//ini adalah function untuk memberikan REDUCER sebuah ACTION dan DATA LAMA
+const selectSong = (data,action) => {
+    if(action.type == 'SONG_SELECTED'){
+        return action.payload
+    }
+
+    return data
+}
+
 //synthax nya adalah combineReducers akan menerima sebuah object
 //combineReducers adalah object storagenya. dimana nanti akan menghasilkan sebuah STATE
 //export default combineReducers akan mempermudah combineReducers untuk di export langsung
@@ -49,8 +60,3 @@ export default combineReducers({
     //synthax adalah key(nama tempat penyimpanan) : namaReducer
     songs:songsReducer
 })
-
-//ini adalah function untuk memberikan REDUCER sebuah ACTION dan DATA LAMA
-const selectedSongReducer = (action,selectedSong) => {
-
-}
