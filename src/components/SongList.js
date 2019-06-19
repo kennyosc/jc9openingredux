@@ -1,11 +1,15 @@
 import React from 'react'
+
+//import function selectSong dari actions
+import {selectSong} from '../actions/index.js'
+import {selectArtist} from '../actions/index.js'
+
 //redux yang membuat STOREnya, react-redux yang menghubungkan antara react dengan redux
 import {connect} from 'react-redux'
 
+
+
 class SongList extends React.Component{
-    pilihLagu = () => {
-        return 
-    }
 
     showTitle(){
         var judul = this.props.lagu.map((val)=>{
@@ -16,8 +20,8 @@ class SongList extends React.Component{
                         {val.title}
                     </div>
                     <div className="d-inline float-right pr-5">
-                        <button className="btn btn-md btn-outline-primary mr-2" onClick={this.pilihLagu}>Select Song</button>
-                        <button className="btn btn-md btn-outline-primary">Select Artist</button>
+                        <button className="btn btn-md btn-outline-primary mr-2" onClick={()=>this.props.selectSong(val)}>Select Song</button>
+                        <button className="btn btn-md btn-outline-primary" onClick={()=>this.props.selectArtist(val)}>Select Artist</button>
                     </div>
                 </div>
             )
@@ -44,4 +48,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(SongList)
+//yang kanan itu file dari sini yang mau di export, dan yang kiri itu function2 yang mau di connect dengan yang lain
+export default connect(mapStateToProps, {selectSong,selectArtist})(SongList)
