@@ -45,7 +45,7 @@ const songsReducer = () => {
 
 //ini Reducer untuk handle pemilihan lagu (select song)
 //ini adalah function untuk memberikan REDUCER sebuah ACTION dan DATA LAMA
-const selectSong = (data,action) => {
+const selectSongReducer = (data,action) => {
     if(action.type == 'SONG_SELECTED'){
         return action.payload
     }
@@ -58,5 +58,6 @@ const selectSong = (data,action) => {
 //export default combineReducers akan mempermudah combineReducers untuk di export langsung
 export default combineReducers({
     //synthax adalah key(nama tempat penyimpanan) : namaReducer
-    songs:songsReducer
+    songs:songsReducer,
+    selectSong : selectSongReducer
 })
