@@ -3,12 +3,23 @@ import { connect } from 'react-redux';
 
 class ArtistDetail extends React.Component{
     showArtist(){
-        return(
-            <div>
-                <b>Artist: </b>{this.props.selectArtist.artist}
-            </div>
-        )
+        if(this.props.selectArtist === null){
+            return(
+                <div>
+                </div>
+            )
+        } else{
+            return(
+                <div>
+                    <b>Artist: </b>{this.props.selectArtist.artist}
+                    <div>
+                    <b>Personnel: </b>{this.props.selectArtist.personnel}
+                    </div>
+                </div>
+            )
+        }  
     }
+
     
     render(){
         return(

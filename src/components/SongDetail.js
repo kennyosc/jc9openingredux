@@ -3,12 +3,23 @@ import { connect } from 'react-redux'
 
 class SongDetail extends React.Component{
     showSongDetail(){
-        return(
-            <div>
-                <b>Title:</b>{this.props.selectSong.title}
-                <b>Duration:</b>{this.props.selectSong.duration}
-            </div>
-        )
+        if(this.props.selectSong === null){
+            return(
+                <div>
+                </div>
+            )
+        } else{
+            return(
+                <div>
+                    <div>
+                        <b>Title: </b>{this.props.selectSong.title}
+                    </div>
+                    <div>
+                        <b>Duration: </b>{this.props.selectSong.duration}
+                    </div>
+                </div>
+            )
+        }
     }
     
     render(){

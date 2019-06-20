@@ -45,14 +45,15 @@ const songsReducer = () => {
 
 //ini Reducer untuk handle pemilihan lagu (select song)
 //ini adalah function untuk memberikan REDUCER sebuah ACTION dan DATA LAMA
-const selectSongReducer = (data = [],action) => {
+//REDUCER TIDAK BOLEH return UNDEFINED
+const selectSongReducer = (data = null,action) => {
     if(action.type == 'SONG_SELECTED'){
         return action.payload
     }
     return data
 }
 
-const selectArtistReducer = (data = [],action) => {
+const selectArtistReducer = (data = null,action) => {
     if(action.type == 'ARTIST_SELECTED'){
         return action.payload
     }
