@@ -5,19 +5,17 @@ class ArtistDetail extends React.Component{
     showArtist(){
         if(this.props.selectArtist === null){
             return(
-                <div>
-                </div>
+                <div></div>
             )
-        } else{
-            return(
+        }
+        return(
+            <div>
+                <b>Artist: </b>{this.props.selectArtist.artist}
                 <div>
-                    <b>Artist: </b>{this.props.selectArtist.artist}
-                    <div>
-                    <b>Personnel: </b>{this.props.selectArtist.personnel}
-                    </div>
+                <b>Personnel: </b>{this.props.selectArtist.personnel.join(', ')}
                 </div>
-            )
-        }  
+            </div>
+        )
     }
 
     
